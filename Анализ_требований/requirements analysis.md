@@ -132,4 +132,30 @@
 3. Система меняет статус с «Оплата» на «Свободный сеанс»
 4. Вариант использования завершает свою работу
 
-![Диаграмма_вариантов_использования] ()
+![Диаграмма_вариантов_использования](https://github.com/Korchunov/Portfolio_Systems_Analyst/blob/master/%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7_%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9/%D0%94%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0_%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%D0%BE%D0%B2_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png)
+
+> Синтаксис:
+
+@startuml\
+skinparam actorStyle awesome\
+:Пользователь: as User\
+left to right direction\
+rectangle "Система" {\
+(Выбрать фото) as photo\
+(Показать галлерею фото) as gallery\
+(Ввести логин от Instagram) as login\
+(Активировать текстовое\n поле) as text\
+(Подтверждение печати) as print1\
+(Оплата услуги) as cash\
+(Печать фото) as print2\
+(Открыть профиль\n пользователя) as profile\
+}\
+User -[bold]- login #185DFF\
+User -[bold]- photo #185DFF\
+User -[bold]- print1 #185DFF\
+photo <..gallery: <<extend>>\
+login <.. text: <<extend>> \
+cash ..> print2: <<include>>\
+cash <.. print1: <<include>>\
+login ..> profile: <<include>>\
+@enduml
