@@ -366,11 +366,15 @@ city_arrival           |    text   | Город прибытия
 
 > **Синтаксис**
 
-`create view view1 as (
-select a.city as city_departure, a2.city as city_arrival
-from flights f 
-join airports a on f.departure_airport = a.airport_code
-join airports a2 on f.arrival_airport = a2.airport_code);`
+```
+create view view1 as (
+  select 
+    a.city as city_departure, 
+    a2.city as city_arrival
+  from flights f 
+  join airports a on f.departure_airport = a.airport_code
+  join airports a2 on f.arrival_airport = a2.airport_code);
+```
 
 ---
 
